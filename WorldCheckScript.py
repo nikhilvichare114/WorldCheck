@@ -83,8 +83,7 @@ def worldCheckFileLoad():
 
 def getMD5Chcksum(username, password):
     try:
-        md5Url = \
-            'https://www.world-check.com/portal/Downloads/world-check-deleted-day-v2.xml.md5'
+        md5Url = os.environ['md5Url']
         request = urllib2.Request(md5Url, headers={'accept': '*/*'})
         base64string = base64.b64encode('%s:%s' % (username, password))
         request.add_header('Authorization', 'Basic %s' % base64string)
